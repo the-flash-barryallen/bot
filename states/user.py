@@ -1,4 +1,4 @@
-from aiogram.dispatcher.filters.state import StatesGroup,State
+from aiogram.dispatcher.filters.state import StatesGroup, State
 
 
 class RegisterStates(StatesGroup):
@@ -15,3 +15,7 @@ class TestStates(StatesGroup):
 class AnswerStates(StatesGroup):
     answers = State()
     test_id = State()
+
+
+class SelectStates(StatesGroup):
+    select = State()

@@ -19,7 +19,8 @@ test_maker = ReplyKeyboardMarkup(
 select_test = ReplyKeyboardMarkup(
     keyboard=[
         [
-            KeyboardButton(text="🕵🏻‍♂️Select_test")
+            KeyboardButton(text="🕵🏻‍♂️Select_test"),
+            KeyboardButton(text="📖About🤵")
         ]
     ], resize_keyboard=True
 )

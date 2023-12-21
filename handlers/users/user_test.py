@@ -3,9 +3,8 @@ from aiogram.dispatcher import FSMContext
 from loader import dp
 from aiogram import types
 
-from states.user import TestStates
+from states.user import TestStates, AnswerStates
 from utils.db_api.user_commands import add_test
-
 
 
 @dp.message_handler(text="📖New_test")
@@ -22,7 +21,12 @@ async def get_code_handler(message: types.Message, state: FSMContext):
     code = await add_test(data=data)
     if code:
         text = "Code kiritildi iltimos javob kiritish uchun button da foydalaning"
+        await AnswerStates.answers.set()
     else:
         text = "MuxriddieUzur Muxriddin aka botta hato bor"
     await message.answer(text=text)
-    await state.finish()
+
+
+@dp.message_handler(state=AnswerStates.answers)
+async def add_answer_handler(message: types.Message, state: FSMContext):
+    await state.update_data(answers=message.text, test_id=)

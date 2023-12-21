@@ -17,7 +17,7 @@ test = sqlalchemy.Table(
     "test",
     metadata,
     sqlalchemy.Column("id", sqlalchemy.Integer, primary_key=True),
-    sqlalchemy.Column("code", sqlalchemy.BigInteger),
+    sqlalchemy.Column("test_cod", sqlalchemy.BigInteger),
     sqlalchemy.Column('created_at', DateTime(timezone=True), nullable=True)
 )
 

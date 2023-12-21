@@ -32,7 +32,7 @@ async def get_user(chat_id: int):
 async def add_test(data: dict):
     try:
         query = test.insert().values(
-            code=data.get("code"),
+            test_cod=data.get("code"),
             created_at=data.get("created_at")
         ).returning(test.c.id)
         new_test = await database.execute(query=query)

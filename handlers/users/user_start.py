@@ -2,7 +2,7 @@ from aiogram import types
 from aiogram.dispatcher.filters.builtin import CommandStart
 from keyboards.inline.user import channel_url_keyboard
 from data.config import ADMINS
-from states.user import RegisterStates
+from states.user import RegisterStates, SelectStates
 from loader import dp
 from aiogram.dispatcher import FSMContext
 from utils.checker import check
@@ -52,3 +52,10 @@ async def phone_handler(message: types.Message, state: FSMContext):
         text = "Bot has some problem"
     await message.answer(text=text, reply_markup=select_test)
     await state.finish()
+
+@dp.message_handler(text = "🕵🏻‍♂️Select_test")
+async def select_test_handler(message:types.Message):
+    text = "Iltimos tekshirmoqchi bolgan test tingizni codini kiriting"
+    await message.answer(text=text)
+    await SelectStates.set()
+
