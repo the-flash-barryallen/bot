@@ -30,7 +30,7 @@ async def bot_start(message: types.Message):
             await RegisterStates.full_name.set()
     else:
         text = "Kanalga podpiska tasha"
-        await message.answer(text=text, reply_markup=channel_url_keyboard)
+        await message.answer(text=text, )
 
 
 @dp.message_handler(state=RegisterStates.full_name)
@@ -58,4 +58,7 @@ async def select_test_handler(message:types.Message):
     text = "Iltimos tekshirmoqchi bolgan test tingizni codini kiriting"
     await message.answer(text=text)
     await SelectStates.set()
+
+
+
 

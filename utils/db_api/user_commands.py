@@ -40,3 +40,17 @@ async def add_test(data: dict):
     except Exception as exc:
         print(exc)
         return False
+
+
+async def add_answer(data:dict):
+    try:
+        query = questions.insert().values(
+            answer=data.get("answers"),
+            test_id = data.get("test_id"),
+            created_at=data.get("created_at")
+        )
+        new_answer = await database.execute(query=query)
+        return new_answer
+    except Exception as exc:
+        print(exc)
+        return False

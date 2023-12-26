@@ -19,3 +19,7 @@ class AnswerStates(StatesGroup):
 
 class SelectStates(StatesGroup):
     select = State()
+
+
+class GetCode(StatesGroup):
+    code = ()
